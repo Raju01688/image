@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merge PDF</title>
+    <title>Unlimited Merge PDF Files</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Merge PDF Files</h1>
-    <input type="file" id="pdfInput" multiple accept=".pdf">
-    <button onclick="mergePDF()">Merge PDFs</button>
-    <div id="output"></div>
+    <div class="container">
+        <h1>Unlimited Merge PDF Files</h1>
+        <div class="upload-container">
+            <input type="file" id="pdf-upload" accept="application/pdf" multiple>
+            <span>or drop PDFs here</span>
+        </div>
+        <div class="google-drive">
+            <button>Upload from Google Drive</button>
+        </div>
+        <div class="preview-container">
+            <div class="pdf-preview">
+                <img id="pdf-preview-img" src="" alt="PDF Preview">
+                <div class="file-name">File Name</div>
+                <button class="close">X</button>
+                <button class="rotate">Rotate</button>
+                <button class="download">Download</button>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
