@@ -1,22 +1,73 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
     background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-input {
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+h1 {
+    color: #007bff;
+}
+
+.upload-container {
+    border: 2px dashed #007bff;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.google-drive button {
+    padding: 10px 20px;
+    background-color: #34a853;
+    color: white;
+    border: none;
+    cursor: pointer;
     margin: 10px 0;
 }
 
+.pdf-preview {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+}
+
+.file-name {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
 button {
-    padding: 10px 20px;
     background-color: #007bff;
     color: white;
     border: none;
+    padding: 8px;
+    margin-top: 10px;
     cursor: pointer;
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+.rotate {
+    background-color: #f39c12;
+}
+
+.close {
+    background-color: #e74c3c;
 }
