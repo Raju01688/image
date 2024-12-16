@@ -1,26 +1,22 @@
-function mergePDF() {
-    const files = document.getElementById('pdfInput').files;
-    if (files.length < 2) {
-        alert("Please select at least two PDF files.");
-        return;
+document.getElementById('pdf-upload').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file && file.type === "application/pdf") {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('pdf-preview-img').src = e.target.result; // Placeholder for PDF preview image
+            document.querySelector('.file-name').innerText = file.name;
+        };
+        reader.readAsDataURL(file);
     }
+});
 
-    const formData = new FormData();
-    for (let i = 0; i < files.length; i++) {
-        formData.append('pdfs', files[i]);
-    }
+document.querySelector('.rotate').addEventListener('click', function() {
+    const previewImage = document.getElementById('pdf-preview-img');
+    previewImage.style.transform = 'rotate(90deg)';
+});
 
-    fetch('your-server-endpoint', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.blob())
-    .then(blob => {
-        const url = URL.createObjectURL(blob);
-        const downloadLink = document.createElement('a');
-        downloadLink.href = url;
-        downloadLink.download = 'merged.pdf';
-        downloadLink.click();
-    })
-    .catch(error => console.error('Error merging PDFs:', error));
-}
+document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('pdf-upload').value = '';
+    document.getElementById('pdf-preview-img').src = '';
+    document.querySelector('.file-name').innerText = '';
+});
